@@ -1,0 +1,13 @@
+name: "GitHub Workplace Action"
+description: "Posts project changelog to workplace group in markdown format"
+inputs:
+  group-id:
+    description: "Id of workplace group to post changelog to"
+    required: true
+  auth-token:
+    description: "Authentication token"
+    required: true
+outputs:
+runs:
+  using: "node16"
+  main: "index.js"
