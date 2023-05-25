@@ -7,8 +7,9 @@ This action posts the projects changelog to a Meta Workplace group.
 `npm install`
 `./node_modules/.bin/ncc build index.js --license licenses.txt`
 
-## Example project setup
-`
+## Example action setup
+
+```
 steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -18,4 +19,4 @@ steps:
         with:
           group-id: ${{ secrets.WORKPLACE_GROUP_ID }}
           auth-token: ${{ secrets.WORKPLACE_AUTH_TOKEN }}
-`
+```
