@@ -4540,6 +4540,53 @@ function removeHook(state, name, method) {
 
 /***/ }),
 
+/***/ 2137:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __nccwpck_require__) => {
+
+const fetchNode = __nccwpck_require__(9805)
+const fetch = fetchNode.fetch.bind({})
+
+fetch.polyfill = true
+
+if (!global.fetch) {
+  global.fetch = fetch
+  global.Response = fetchNode.Response
+  global.Headers = fetchNode.Headers
+  global.Request = fetchNode.Request
+}
+
+
+/***/ }),
+
+/***/ 9805:
+/***/ ((module, exports, __nccwpck_require__) => {
+
+const nodeFetch = __nccwpck_require__(467)
+const realFetch = nodeFetch.default || nodeFetch
+
+const fetch = function (url, options) {
+  // Support schemaless URIs on the server for parity with the browser.
+  // Ex: //github.com/ -> https://github.com/
+  if (/^\/\//.test(url)) {
+    url = 'https:' + url
+  }
+  return realFetch.call(this, url, options)
+}
+
+fetch.ponyfill = true
+
+module.exports = exports = fetch
+exports.fetch = fetch
+exports.Headers = nodeFetch.Headers
+exports.Request = nodeFetch.Request
+exports.Response = nodeFetch.Response
+
+// Needed for TypeScript consumers without esModuleInterop.
+exports["default"] = fetch
+
+
+/***/ }),
+
 /***/ 8932:
 /***/ ((__unused_webpack_module, exports) => {
 
@@ -9789,6 +9836,7 @@ module.exports = JSON.parse('[[[0,44],"disallowed_STD3_valid"],[[45,46],"valid"]
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
+__nccwpck_require__(2137);
 const core = __nccwpck_require__(2186);
 const github = __nccwpck_require__(5438);
 const fs = __nccwpck_require__(7147);
