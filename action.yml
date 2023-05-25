@@ -7,7 +7,6 @@ inputs:
   auth-token:
     description: "Authentication token"
     required: true
-outputs:
 runs:
   using: "node16"
   main: "index.js"
