@@ -1,0 +1,15 @@
+# Database
+DB_DRIVER=
+DB_VERSION=
+
+# Redis
+REDIS_VERSION=
+# true to use TLS, any other value = don't use TLS
+REDIS_USE_TLS=
+
+# PHP
+COMPOSER_VERSION=
+PHP_IMAGE=
+
+# Node
+NODE_VERSION=20.10.0
