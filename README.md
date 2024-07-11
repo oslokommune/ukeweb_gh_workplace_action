@@ -17,7 +17,7 @@ steps:
         uses: actions/checkout@v3
       - name: Workplace step
         id: changelog
-        uses: oslokommune/ukeweb_gh_workplace_action@1.1
+        uses: oslokommune/ukeweb_gh_workplace_action@1.1.0
         with:
           group-id: ${{ secrets.WORKPLACE_GROUP_ID }}
           auth-token: ${{ secrets.WORKPLACE_AUTH_TOKEN }}
